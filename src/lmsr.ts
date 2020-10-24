@@ -9,7 +9,7 @@ export function lmsr(liquidity: number, sharesPro: number, sharesContra: number)
   return liquidity * Math.log(Math.exp(sharesPro / liquidity) + Math.exp(sharesContra / liquidity))
 }
 
-export function getLmsrShas(): string[] {
+export function getLmsrShas(maxL: number = maxLiquidity, maxS: number = maxShares): string[] {
   let array = []
   let i = 0
   for (let l = 1; l <= maxLiquidity; l++) {

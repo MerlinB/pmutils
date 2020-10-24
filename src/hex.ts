@@ -6,6 +6,12 @@ export function reverseHex(s: string): string {
   return array.reverse().join("")
 }
 
-export function num2bin(num: number, byteSize: number = 1): string {
-  return ("0".repeat(byteSize * 4) + num.toString(16).toUpperCase()).slice(-byteSize * 2)
+export function num2bin(num: number | bigint, byteSize?: number): string {
+  let hex = num.toString(16)
+
+  if (byteSize) {
+    hex = ("0".repeat(byteSize * 4) + hex).slice(-byteSize * 2)
+  }
+
+  return reverseHex(hex)
 }
